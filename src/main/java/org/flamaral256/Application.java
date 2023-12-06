@@ -5,12 +5,12 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class SpringJclDemo {
+public class Application {
 
-	private static final Log logWithCustomApacheCommonsSpringJcl = LogFactory.getLog(SpringJclDemo.class);
-	private static final Logger loggerWithLog4jAPI = LogManager.getLogger(SpringJclDemo.class);
+	private static final Log logWithCustomApacheCommonsSpringJcl = LogFactory.getLog(Application.class);
+	private static final Logger loggerWithLog4jAPI = LogManager.getLogger(Application.class);
 	private static final org.apache.logging.log4j.core.Logger loggerWithLog4jCORE = (org.apache.logging.log4j.core.Logger) LogManager
-			.getLogger(SpringJclDemo.class);
+			.getLogger(Application.class);
 
 	public static void main(String[] args) {
 		logWithCustomApacheCommonsSpringJcl.error("Are you programming a new framework without log dependencies?");

@@ -26,7 +26,7 @@
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
 		</dependency>
-		<!-- An implementation for the facade above -->
+		<!-- An implementation for the facade above (contains the api above) -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>

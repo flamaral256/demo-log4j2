@@ -6,9 +6,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
-public class SpringJclDemoTest {
+public class ApplicationTests {
 
-	private static final Logger logger = LogManager.getLogger(SpringJclDemoTest.class);
+	private static final Logger logger = LogManager.getLogger(ApplicationTests.class);
 
 	@Test
 	public void foo() {
