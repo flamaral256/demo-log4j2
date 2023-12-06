@@ -1,4 +1,4 @@
-package demo;
+package org.flamaral256;
 
 import static org.junit.Assert.assertTrue;
 
