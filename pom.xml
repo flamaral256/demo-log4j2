@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<name>demo-spring-jcl</name>
-	<description>Demo project for Spring Jcl</description>
+	<description>Demo project for logging setup</description>
 	<groupId>org.flamaral256</groupId>
 	<artifactId>demo-spring-jcl</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -16,12 +16,13 @@
 	</parent>
 
 	<dependencies>
-		<!-- A minimal Apache Commons Logging's API -->
+		<!-- The Java Class Library (JCL) is a set of dynamically loadable libraries that Java Virtual Machine (JVM) languages can call at run time.
+		One of them is the spring implementation for the Apache Commons Logging's API, an ultra-thin bridge between different logging implementations. -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jcl</artifactId>
 		</dependency>
-		<!-- A new logger facade better than SLF4J -->
+		<!-- A new logger facade better than SLF4J (included with implementation bellow) -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
