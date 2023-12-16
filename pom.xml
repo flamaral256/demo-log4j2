@@ -22,18 +22,18 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jcl</artifactId>
 		</dependency>
-		<!-- A new logger facade better than SLF4J (included with implementation bellow) -->
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-		</dependency>
-		<!-- An implementation for the facade above (contains the api above) -->
+		<!-- A new logger facade implementation better than SLF4J -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
 		</dependency>
-		<!-- Demonstrates log configuration in test scope -->
+		<!-- Demonstrates log configuration in test scope using JUnit 5 = JUnit Platform + JUnit Jupiter -->
 		<dependency>
+			<groupId>org.junit.platform</groupId> <!-- run a test suite using one or more test engines -->
+			<artifactId>junit-platform-suite-engine</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency> <!-- you need at least one test engine -->
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
 			<scope>test</scope>

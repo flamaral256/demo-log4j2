@@ -1,5 +1,7 @@
 package org.flamaral256;
 
+import org.flamaral256.app.Application;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.LogManager;
@@ -9,6 +11,7 @@ import static java.util.Objects.requireNonNull;
 public class Main {
 
     static {
+        // if a -D parameter was not defined with a logging.properties at java -jar, use the default file here
         if (!System.getProperties().containsKey("java.util.logging.config.file")) {
             try (InputStream julConfigFile = Main.class.getResourceAsStream("/logging.properties")) {
                 requireNonNull(julConfigFile, "logging.properties not founded in classpath");

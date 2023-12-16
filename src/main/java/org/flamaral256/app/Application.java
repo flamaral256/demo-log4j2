@@ -1,4 +1,4 @@
-package org.flamaral256;
+package org.flamaral256.app;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
