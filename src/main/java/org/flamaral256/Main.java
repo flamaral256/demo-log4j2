@@ -10,8 +10,8 @@ import static java.util.Objects.requireNonNull;
 
 public class Main {
 
-    static {
-        // if a -D parameter was not defined with a logging.properties at java -jar, use the default file here
+    public static void configureJul() {
+        // if a -D parameter was not defined with a logging.properties at java -jar, use the default file in resources
         if (!System.getProperties().containsKey("java.util.logging.config.file")) {
             try (InputStream julConfigFile = Main.class.getResourceAsStream("/logging.properties")) {
                 requireNonNull(julConfigFile, "logging.properties not founded in classpath");
@@ -21,6 +21,10 @@ public class Main {
                 System.exit(-1);
             }
         }
+    }
+
+    static {
+        configureJul();
     }
 
     public static void main(String[] args) {

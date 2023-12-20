@@ -13,31 +13,20 @@ import org.junit.platform.suite.api.SelectPackages;
 import org.junit.platform.suite.api.Suite;
 import org.junit.platform.suite.api.SuiteDisplayName;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
-import java.util.logging.LogManager;
 
-import static java.util.Objects.requireNonNull;
+import static org.flamaral256.Main.configureJul;
 import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass;
 
 @Suite
 @SuiteDisplayName("JUnit Platform Suite Demo")
 @SelectPackages("org.flamaral256.app")
 @IncludeClassNamePatterns(".*Tests")
-public class MainSuite {
+public class MainSuite { // if you run tests using IDE integration you should set up jul file properties as a -D parameter
 
     static {
-        // if a -D parameter was not defined with a logging.properties at java -jar, use the default file here
-        if (!System.getProperties().containsKey("java.util.logging.config.file")) {
-            try (InputStream julConfigFile = Main.class.getResourceAsStream("/logging.properties")) {
-                requireNonNull(julConfigFile, "logging.properties not founded in classpath");
-                LogManager.getLogManager().readConfiguration(julConfigFile);
-            } catch (IOException e) {
-                e.printStackTrace();
-                System.exit(-1);
-            }
-        }
+        // only called when executing tests through main method bellow
+        configureJul();
     }
 
     public static void main(String[] args) {

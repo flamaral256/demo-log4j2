@@ -1,13 +1,7 @@
 package org.flamaral256.app;
 
-import org.flamaral256.Main;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.logging.LogManager;
-
-import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ApplicationTests {
