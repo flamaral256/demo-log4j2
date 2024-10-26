@@ -12,7 +12,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.0</version>
+		<version>3.3.5</version>
 	</parent>
 
 	<dependencies>
@@ -22,10 +22,31 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jcl</artifactId>
 		</dependency>
-		<!-- A new logger facade implementation better than SLF4J -->
+		<!-- for best practices we hide the log framework provider behind the SLF4J API for portability proposes such as change to logback with no code changes. -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<!-- A new logger facade implementation better than SLF4J (but for best practices we still use it behind the SLF4J API for portability proposes) -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
+			<artifactId>log4j-core</artifactId> <!-- includes log4j-api transitive dependency-->
+		</dependency>
+		<!-- Redirect jul to log4j setting property java.util.logging.manager to org.apache.logging.log4j.jul.LogManager -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-jul</artifactId>
+		</dependency>
+		<!-- The SLF4J binding provided in this component cause all the SLF4J APIs to be routed to Log4j 2. Simply include the Log4j 2 SLF4J Binding jar
+		along with the Log4j 2 jars and SLF4J API jar to cause all SLF4J logging to be handled by Log4j 2.-->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j2-impl</artifactId>
+		</dependency>
+		<!-- Log in json structured format -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
 		</dependency>
 		<!-- Demonstrates log configuration in test scope using JUnit 5 = JUnit Platform + JUnit Jupiter -->
 		<dependency>

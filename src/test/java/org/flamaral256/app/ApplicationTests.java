@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ApplicationTests {
 
+    private static final org.slf4j.Logger SLF4J = org.slf4j.LoggerFactory.getLogger(Application.class); // best practice
     private static final org.apache.logging.log4j.Logger LOG4J = org.apache.logging.log4j.LogManager.getLogger(ApplicationTests.class);
     private static final java.util.logging.Logger JUL = java.util.logging.Logger.getLogger(ApplicationTests.class.getName());
 
@@ -18,6 +19,12 @@ public class ApplicationTests {
     @Test
     public void log_with_Log4j() {
         LOG4J.info("Logging in a test scope with log4j");
+        assertTrue(true);
+    }
+
+    @Test
+    public void log_with_Slf4j() {
+        SLF4J.info("Logging in a test scope with slf4j");
         assertTrue(true);
     }
 }
