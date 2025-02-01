@@ -48,15 +48,20 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 		</dependency>
-		<!-- Demonstrates log configuration in test scope using JUnit 5 = JUnit Platform + JUnit Jupiter -->
+		<!-- Demonstrates log configuration in test scope using JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage  -->
 		<dependency>
 			<groupId>org.junit.platform</groupId> <!-- run a test suite using one or more test engines -->
 			<artifactId>junit-platform-suite-engine</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency> <!-- you need at least one test engine -->
+		<dependency> <!-- you need at least one test engine. This engine is for running Jupiter based tests -->
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency> <!-- this engine is for running JUnit 3 and JUnit 4 based tests and avoids ClassNotFoundException on OpenTest4JAndJUnit4AwareThrowableCollector -->
+			<groupId>org.junit.vintage</groupId>
+			<artifactId>junit-vintage-engine</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
