@@ -5,11 +5,11 @@
 			<PatternLayout
 				pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} [%t] %-5level %logger{36} %M - %msg%n" />
 		</Console>
-		<Console name="ConsoleJSONAppender" target="SYSTEM_OUT">
+		<!--Console name="ConsoleJSONAppender" target="SYSTEM_OUT">
 			<JsonLayout complete="false" compact="false">
 				<KeyValuePair key="myCustomField" value="myCustomValue" />
 			</JsonLayout>
-		</Console>
+		</Console-->
 	</Appenders>
 
 	<Loggers>
@@ -17,7 +17,8 @@
 			<AppenderRef ref="Console" />
 		</Root>
 		<Logger name="org.flamaral256" level="all" additivity="false">
-			<AppenderRef ref="ConsoleJSONAppender" />
+			<!--AppenderRef ref="ConsoleJSONAppender" /-->
+			<AppenderRef ref="Console" />
 		</Logger>
 	</Loggers>
 </Configuration>
