@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<name>demo-spring-jcl</name>
+	<name>demo-logging</name>
 	<description>Demo project for logging setup</description>
 	<groupId>org.flamaral256</groupId>
-	<artifactId>demo-spring-jcl</artifactId>
+	<artifactId>demo-logging</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<parent>
@@ -16,14 +16,17 @@
 	</parent>
 
 	<dependencies>
+
 		<!-- If this project is a library and can not have a log implementations in its dependencies, use the commons-logging api -->
 		<!-- This api uses the Java Class Library (JCL) to check if the application client has a log implementation at run time and load it. -->
-		<!-- Alternatives like spring-jcl was deprecated. See https://github.com/spring-projects/spring-framework/issues/32459 -->
+		<!-- Alternatives like spring-jcl was deprecated due to JPM errors. See https://github.com/spring-projects/spring-framework/issues/32459 -->
+		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 			<version>1.3.4</version>
 		</dependency>
+
 		<!-- for best practices we hide the log framework provider behind the SLF4J API for portability proposes such as change to logback with no code changes. -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
