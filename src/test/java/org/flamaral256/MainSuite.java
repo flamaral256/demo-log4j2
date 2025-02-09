@@ -20,7 +20,7 @@ import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass
 @SuiteDisplayName("JUnit Platform Suite Demo")
 @SelectPackages("org.flamaral256.app")
 @IncludeClassNamePatterns(".*Tests")
-public class MainSuite { // if you run tests using IDE integration you should set up jul file properties as a -D parameter
+public class MainSuite {
 
     private static final org.apache.logging.log4j.Logger LOG4J = org.apache.logging.log4j.LogManager.getLogger(ApplicationTests.class);
 
@@ -57,7 +57,5 @@ public class MainSuite { // if you run tests using IDE integration you should se
 
         final TestExecutionSummary summary = listener.getSummary();
         summary.printTo(new PrintWriter(System.out));
-
-        System.exit(0);
     }
 }

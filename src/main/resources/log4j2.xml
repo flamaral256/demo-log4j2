@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN">
+<Configuration status="all">
+
 	<Appenders>
 		<Console name="Console" target="SYSTEM_OUT">
-			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} [%t] %-5level %logger{36} %M - %msg%n" />
+			<PatternLayout pattern="PrefixLog4j2 %d{yyyy-MM-dd HH:mm:ss,SSS} [%t] %-5level %logger{36} %M - %msg%n" />
 		</Console>
 	</Appenders>
 
@@ -14,4 +15,5 @@
 			<AppenderRef ref="Console" />
 		</Logger>
 	</Loggers>
+
 </Configuration>

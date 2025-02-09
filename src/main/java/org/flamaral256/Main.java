@@ -13,27 +13,27 @@ import static java.util.Objects.requireNonNull;
 public class Main {
 
     public static void configureJul() {
-        System.setProperty("java.util.logging.manager", "org.apache.logging.log4j.jul.LogManager"); // routes JUL to log4j
+        if (System.getProperty("java.util.logging.manager") == null) {
+            System.setProperty("java.util.logging.manager", "org.apache.logging.log4j.jul.LogManager"); // routes JUL to log4j
+        }
 
-        // if a -D parameter was not defined with a logging.properties at java -jar command, use the default file in resources
-        if (!System.getProperties().containsKey("java.util.logging.config.file")) {
+        // if a logging.properties file was not informed via -D, uses resources/logging.properties as default
+        if (System.getProperty("java.util.logging.config.file") == null) {
             try (InputStream julConfigFile = Main.class.getResourceAsStream("/logging.properties")) {
                 requireNonNull(julConfigFile, "logging.properties not founded in classpath");
                 LogManager.getLogManager().readConfiguration(julConfigFile);
             } catch (IOException e) {
-                Logger.getGlobal().log(Level.WARNING, "IOException getting resource logging.properties", e);
-                System.exit(-1);
+                Logger.getGlobal().log(Level.SEVERE, "IOException getting resources/logging.properties", e);
             }
         }
     }
 
     static {
-        configureJul();
+        configureJul(); // no Logger or LogManager call can be made before this method call!
     }
 
     public static void main(String[] args) {
         final Application app = new Application();
         app.run();
-        System.exit(0);
     }
 }
