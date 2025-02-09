@@ -90,6 +90,9 @@
     </dependencies>
 
     <build>
+
+        <finalName>app</finalName>
+
         <plugins>
 
             <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
@@ -98,12 +101,11 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.4.2</version>
                 <configuration>
-                    <finalName>app</finalName> <!-- jar tvf target/app.jar -->
                     <archive>
                         <index>false</index> <!-- do not generate META-INF/INDEX.LIST -->
                         <addMavenDescriptor>false</addMavenDescriptor> <!-- do not generate META-INF/maven/.. -->
-                        <manifest> <!-- unzip -q -c target/app.jar META-INF/MANIFEST.MF -->
-                            <addClasspath>true</addClasspath>
+                        <manifest> <!-- jar tvf target/app.jar -->
+                            <addClasspath>true</addClasspath> <!-- unzip -q -c target/app.jar META-INF/MANIFEST.MF -->
                             <mainClass>org.flamaral256.Main</mainClass>
                             <classpathPrefix>lib/</classpathPrefix>
                         </manifest>
