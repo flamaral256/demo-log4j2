@@ -9,12 +9,6 @@
 	<artifactId>demo-log4j2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<parent> <!-- only for versions handling -->
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.2</version>
-	</parent>
-
 	<dependencies>
 
 		<!-- If this project is a library and can not have a log implementations in its dependencies, use the commons-logging api -->
@@ -28,7 +22,7 @@
 			<version>1.3.4</version>
 		</dependency>
 
-		<!-- 1. Log4j is a logging API whose reference implementation is Log4j Core. This is our choice and all foreign loggers will be redirected to here -->
+		<!-- Log4j is a logging API whose reference implementation is Log4j Core. This is our choice and all foreign loggers will be redirected to here -->
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
@@ -63,38 +57,45 @@
 		<!--/dependency-->
 
 		<!-- Log in json structured format -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
+			<version>2.18.2</version>
 		</dependency>
 
-		<!-- Demonstrates log configuration in test scope using JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage  -->
+		<!-- Demonstrates log configuration in test scope using JUnit 5 = JUnit Platform Suite + JUnit Jupiter + JUnit Vintage  -->
+		<!-- The JUnit Platform supports the declarative definition and execution of @Suite of tests from any test engine -->
+		<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-suite -->
 		<dependency>
-			<groupId>org.junit.platform</groupId> <!-- run a test suite using one or more test engines -->
-			<artifactId>junit-platform-suite-engine</artifactId>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-suite</artifactId> <!-- run a test suite using one or more test engines -->
+			<version>1.11.4</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency> <!-- you need at least one test engine. This engine is for running Jupiter based tests -->
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
+		<dependency>
 			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId>
+			<artifactId>junit-jupiter</artifactId> <!-- this engine is for running Jupiter (Junit5) based tests -->
+			<version>5.11.4</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency> <!-- this engine is for running JUnit 3 and JUnit 4 based tests and avoids ClassNotFoundException on OpenTest4JAndJUnit4AwareThrowableCollector -->
+		<!-- https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine -->
+		<dependency>
 			<groupId>org.junit.vintage</groupId>
-			<artifactId>junit-vintage-engine</artifactId>
+			<artifactId>junit-vintage-engine</artifactId> <!-- this engine is for running JUnit 3 and JUnit 4 based tests -->
+			<version>5.11.4</version>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
 			<plugin> <!-- just copy dependencies to target/lib folder, to be useful to check the lib sizes -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.8.1</version>
 				<executions>
 					<execution>
 						<id>copy-dependencies</id>

@@ -1,5 +1,6 @@
 package org.flamaral256;
 
+import org.flamaral256.app.ApplicationTests;
 import org.junit.platform.launcher.Launcher;
 import org.junit.platform.launcher.LauncherDiscoveryRequest;
 import org.junit.platform.launcher.LauncherSession;
@@ -8,10 +9,7 @@ import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;
 import org.junit.platform.launcher.core.LauncherFactory;
 import org.junit.platform.launcher.listeners.SummaryGeneratingListener;
 import org.junit.platform.launcher.listeners.TestExecutionSummary;
-import org.junit.platform.suite.api.IncludeClassNamePatterns;
-import org.junit.platform.suite.api.SelectPackages;
-import org.junit.platform.suite.api.Suite;
-import org.junit.platform.suite.api.SuiteDisplayName;
+import org.junit.platform.suite.api.*;
 
 import java.io.PrintWriter;
 
@@ -24,9 +22,20 @@ import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass
 @IncludeClassNamePatterns(".*Tests")
 public class MainSuite { // if you run tests using IDE integration you should set up jul file properties as a -D parameter
 
+    private static final org.apache.logging.log4j.Logger LOG4J = org.apache.logging.log4j.LogManager.getLogger(ApplicationTests.class);
+
     static {
-        // only called when executing tests through main method bellow
-        configureJul();
+        configureJul(); // only called when executing tests through main method bellow
+    }
+
+    @BeforeSuite
+    static void beforeSuite() {
+        LOG4J.info("beforeSuite");
+    }
+
+    @AfterSuite
+    static void afterSuite() {
+        LOG4J.info("afterSuite");
     }
 
     public static void main(String[] args) {
