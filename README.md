@@ -4,12 +4,17 @@
 2. SL4J api + Logback implementation <= (not my choice due to bad documentation)
 
 This project is a demo to concentrate all logging's apis (including JUL and SL4J) into the log4j, my chosen log framework.
+
+Ref: https://logging.apache.org/log4j/2.x/index.html <= the current version of this demo
+
+Ref: https://logging.apache.org/log4j/3.x/index.html <= the next future version
+
 Also, this project uses apache-commons-logging to demonstrate its use in libraries that needs to be agnostic from log dependencies.
 The use of JUL (java.util.logging), a native java logger used in many libraries (e.g. postgres), is also demonstrated.
 
 ### There are two ways to redirect all foreign logging calls (SL4J, JUL etc) into the log4j:
 
-1. Bridge all logging APIs directly to Log4j API <= (the recommended way and my choice)
+1. Bridge all logging APIs (including SLF4J calls) directly to Log4j API <= (the recommended way and my choice)
 2. Bridge all logging APIs to SLF4J, and bridge SLF4J to Log4j API <= (not my choice due to the need to cross multiple bridges)
 
 ### The setup of JUL (java.util.logging) to redirect to log4j: 
