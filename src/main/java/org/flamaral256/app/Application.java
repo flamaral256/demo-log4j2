@@ -18,9 +18,9 @@ public class Application {
         loggerWithLog4jCORE.warn("You have coupled the application's code with a log4j-core implementation");
         loggerWithLog4jAPI.info("OUR CHOICE! It is the interface of log4j2-api, a better facade than SL4J and where all bridges points to here directly");
         loggerWithSLF4jAPI.warn("Ok, it is the interface of sl4fj-api but log4j is a better facade! You can still use SL4j with a bridge to redirect to log4j");
-        loggerWithJUL.fine("fine");
+        loggerWithJUL.finest("fine");
         loggerWithJUL.finest("finest");
-        loggerWithJULGlobal.info("test Logger.getGlobal()");
-        loggerWithJULAnonymous.info("test Logger.getAnonymousLogger()");
+        loggerWithJULGlobal.finest("finest Logger.getGlobal()");
+        loggerWithJULAnonymous.finest("finest Logger.getAnonymousLogger()");
     }
 }

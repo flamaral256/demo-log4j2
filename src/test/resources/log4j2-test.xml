@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="warn"> <!-- change to all to see the complete log4j2 log startup -->
+
 	<Appenders>
 		<Console name="Console" target="SYSTEM_OUT">
 			<PatternLayout pattern="TestPrefix - %d{yyyy-MM-dd HH:mm:ss,SSS} [%t] %-5level %logger{36} %M - %msg%n" />
 		</Console>
 	</Appenders>
+
 	<Loggers>
 		<Root level="all">
 			<AppenderRef ref="Console" />
@@ -16,4 +18,5 @@
 			<AppenderRef ref="Console" />
 		</Logger>
 	</Loggers>
+
 </Configuration>
