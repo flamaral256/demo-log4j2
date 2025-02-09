@@ -62,20 +62,6 @@
 			<!--version>2.24.3</version-->
 		<!--/dependency-->
 
-		<!-- 2. SLF4J is a logging API whose reference implementation is Logback. This is NOT our choice api but is here to be demonstrated how to bridge to log4j -->
-		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId> <!-- REMOVE ME and use the choice 1 -->
-			<version>2.0.16</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId> <!-- REMOVE ME and use the choice 1 -->
-			<version>1.5.16</version>
-		</dependency>
-
 		<!-- Log in json structured format -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
