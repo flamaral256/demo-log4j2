@@ -2,7 +2,7 @@ package org.flamaral256.app;
 
 public class Application {
 
-    private static final org.apache.commons.logging.Log logWithCustomApacheCommonsSpringJcl = org.apache.commons.logging.LogFactory.getLog(Application.class);
+    private static final org.apache.commons.logging.Log logWithApacheCommonsJcl = org.apache.commons.logging.LogFactory.getLog(Application.class);
     private static final org.apache.logging.log4j.Logger loggerWithLog4jAPI = org.apache.logging.log4j.LogManager.getLogger(Application.class);
 
     private static final org.slf4j.Logger loggerWithSLF4jAPI = org.slf4j.LoggerFactory.getLogger(Application.class);
@@ -12,10 +12,10 @@ public class Application {
     private static final java.util.logging.Logger loggerWithJUL = java.util.logging.Logger.getLogger(Application.class.getName());
 
     public void run() {
-        logWithCustomApacheCommonsSpringJcl.error("Are you programming a new framework without log dependencies?");
-        loggerWithLog4jCORE.warn("You have coupled the application's code with a log implementation");
-        loggerWithLog4jAPI.info("Ok, it is the interface of log4j2-api! But you need to change the log code later if you choose another provider such as logback");
-        loggerWithSLF4jAPI.info("Ok, it is the interface of sl4fj-api! You don't need to change the log code later if you choose another provider such as logback because you hide the providers behind SL4Fj facade");
+        logWithApacheCommonsJcl.warn("Are you programming a new framework without log dependencies? By the way it redirects to log4j");
+        loggerWithLog4jCORE.warn("You have coupled the application's code with a log4j-core implementation");
+        loggerWithLog4jAPI.info("OUR CHOICE! It is the interface of log4j2-api, a better facade than SL4J and where all bridges points to here directly");
+        loggerWithSLF4jAPI.warn("Ok, it is the interface of sl4fj-api but log4j is a better facade! You can still use SL4j with a bridge to redirect to log4j");
         loggerWithJUL.fine("fine");
         loggerWithJUL.finest("finest");
     }
