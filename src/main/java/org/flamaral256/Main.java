@@ -13,9 +13,6 @@ import static java.util.Objects.requireNonNull;
 public class Main {
 
     public static void configureJul() {
-        if (System.getProperty("java.util.logging.manager") == null) {
-            System.setProperty("java.util.logging.manager", "org.apache.logging.log4j.jul.LogManager"); // routes JUL to log4j
-        }
 
         // if a logging.properties file was not informed via -D, uses resources/logging.properties as default
         if (System.getProperty("java.util.logging.config.file") == null) {
