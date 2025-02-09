@@ -1,118 +1,134 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<name>demo-log4j2</name>
-	<description>Demo project for logging setup using log4j2 and bridges to it</description>
-	<groupId>org.flamaral256</groupId>
-	<artifactId>demo-log4j2</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+    <name>demo-log4j2</name>
+    <description>Demo project for logging setup using log4j2 and bridges to it</description>
+    <groupId>org.flamaral256</groupId>
+    <artifactId>demo-log4j2</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>21</maven.compiler.source>
-		<maven.compiler.target>21</maven.compiler.target>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+    </properties>
 
-	<dependencies>
+    <dependencies>
 
-		<!-- If this project is a library and can not have a log implementations in its dependencies, use the commons-logging api -->
-		<!-- This api uses the Java Class Library (JCL) to check if the application client has a log implementation at run time and load it. -->
-		<!-- That said, the commons-logging also act like a bridge, selecting the log api (log4j is looked up first) where logs will be redirected -->
-		<!-- Alternatives like spring-jcl was deprecated due to JPM errors. See https://github.com/spring-projects/spring-framework/issues/32459 -->
-		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.3.4</version>
-		</dependency>
+        <!-- If this project is a library and can not have a log implementations in its dependencies, use the commons-logging api -->
+        <!-- This api uses the Java Class Library (JCL) to check if the application client has a log implementation at run time and load it. -->
+        <!-- That said, the commons-logging also act like a bridge, selecting the log api (log4j is looked up first) where logs will be redirected -->
+        <!-- Alternatives like spring-jcl was deprecated due to JPM errors. See https://github.com/spring-projects/spring-framework/issues/32459 -->
+        <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.3.4</version>
+        </dependency>
 
-		<!-- Log4j is a logging API whose reference implementation is Log4j Core. This is our choice and all foreign loggers will be redirected to here -->
-		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>2.24.3</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.24.3</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j2-impl -->
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-slf4j2-impl</artifactId> <!-- This bridge cause all SLF4J calls to be routed to Log4j -->
-			<version>2.24.3</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-jul -->
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-jul</artifactId> <!-- This bridge cause all JUL calls to be routed to Log4j -->
-			<version>2.24.3</version>
-		</dependency>
-		<!-- The bridge bellow is only necessary if you are using some legacy library that still uses log4j v1 -->
-		<!-- Ref. https://logging.apache.org/log4j/2.x/migrate-from-log4j1.html#when-to-stop-using-the-log4j-1-x-bridge -->
-		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-1.2-api -->
-		<!--dependency-->
-			<!--groupId>org.apache.logging.log4j</groupId-->
-			<!--artifactId>log4j-1.2-api</artifactId--> <!-- This bridge cause all legacy Log4j v1 calls to be routed to Log4j2 -->
-			<!--version>2.24.3</version-->
-		<!--/dependency-->
+        <!-- Log4j is a logging API whose reference implementation is Log4j Core. This is our choice and all foreign loggers will be redirected to here -->
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.24.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.24.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j2-impl -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j2-impl</artifactId> <!-- This bridge cause all SLF4J calls to be routed to Log4j -->
+            <version>2.24.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-jul -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-jul</artifactId> <!-- This bridge cause all JUL calls to be routed to Log4j -->
+            <version>2.24.3</version>
+        </dependency>
+        <!-- The bridge bellow is only necessary if you are using some legacy library that still uses log4j v1 -->
+        <!-- Ref. https://logging.apache.org/log4j/2.x/migrate-from-log4j1.html#when-to-stop-using-the-log4j-1-x-bridge -->
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-1.2-api -->
+        <!--dependency-->
+        <!--groupId>org.apache.logging.log4j</groupId-->
+        <!--artifactId>log4j-1.2-api</artifactId--> <!-- This bridge cause all legacy Log4j v1 calls to be routed to Log4j2 -->
+        <!--version>2.24.3</version-->
+        <!--/dependency-->
 
-		<!-- Demonstrates log configuration in test scope using JUnit 5 = JUnit Platform Suite + JUnit Jupiter + JUnit Vintage  -->
-		<!-- The JUnit Platform supports the declarative definition and execution of @Suite of tests from any test engine -->
-		<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-suite -->
-		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-suite</artifactId> <!-- run a test suite using one or more test engines -->
-			<version>1.11.4</version>
-			<scope>test</scope>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId> <!-- this engine is for running Jupiter (Junit5) based tests -->
-			<version>5.11.4</version>
-			<scope>test</scope>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine -->
-		<dependency>
-			<groupId>org.junit.vintage</groupId>
-			<artifactId>junit-vintage-engine</artifactId> <!-- this engine is for running JUnit 3 and JUnit 4 based tests -->
-			<version>5.11.4</version>
-			<scope>test</scope>
-		</dependency>
+        <!-- Demonstrates log configuration in test scope using JUnit 5 = JUnit Platform Suite + JUnit Jupiter + JUnit Vintage  -->
+        <!-- The JUnit Platform supports the declarative definition and execution of @Suite of tests from any test engine -->
+        <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-suite -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId> <!-- run a test suite using one or more test engines -->
+            <version>1.11.4</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId> <!-- this engine is for running Jupiter (Junit5) based tests -->
+            <version>5.11.4</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine -->
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine
+            </artifactId> <!-- this engine is for running JUnit 3 and JUnit 4 based tests -->
+            <version>5.11.4</version>
+            <scope>test</scope>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
-	<build>
-		<plugins>
-			<plugin> <!-- just copy dependencies to target/lib folder, to be useful to check the lib sizes -->
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.8.1</version>
-				<executions>
-					<execution>
-						<id>copy-dependencies</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/lib</outputDirectory>
-							<overWriteReleases>false</overWriteReleases>
-							<overWriteSnapshots>false</overWriteSnapshots>
-							<overWriteIfNewer>true</overWriteIfNewer>
-							<excludeTransitive>false</excludeTransitive>
-							<includeScope>compile</includeScope>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <plugins>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+            <plugin> <!-- routes jul to log4j2 during 'mvn test' cli and intelliJ plugin junit integration -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.2</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <java.util.logging.manager>org.apache.logging.log4j.jul.LogManager</java.util.logging.manager>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-dependency-plugin -->
+            <plugin> <!-- copy dependencies to target/lib folder, to be useful to check the lib sizes -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.8.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                            <excludeTransitive>false</excludeTransitive>
+                            <includeScope>compile</includeScope>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
 
 </project>
