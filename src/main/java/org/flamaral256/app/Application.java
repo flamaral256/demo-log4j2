@@ -10,6 +10,8 @@ public class Application {
     private static final org.apache.logging.log4j.core.Logger loggerWithLog4jCORE = (org.apache.logging.log4j.core.Logger)
             org.apache.logging.log4j.LogManager.getLogger(Application.class);
     private static final java.util.logging.Logger loggerWithJUL = java.util.logging.Logger.getLogger(Application.class.getName());
+    private static final java.util.logging.Logger loggerWithJULGlobal = java.util.logging.Logger.getGlobal();
+    private static final java.util.logging.Logger loggerWithJULAnonymous = java.util.logging.Logger.getAnonymousLogger();
 
     public void run() {
         logWithApacheCommonsJcl.warn("Are you programming a new framework without log dependencies? By the way it redirects to log4j");
@@ -18,5 +20,7 @@ public class Application {
         loggerWithSLF4jAPI.warn("Ok, it is the interface of sl4fj-api but log4j is a better facade! You can still use SL4j with a bridge to redirect to log4j");
         loggerWithJUL.fine("fine");
         loggerWithJUL.finest("finest");
+        loggerWithJULGlobal.info("test Logger.getGlobal()");
+        loggerWithJULAnonymous.info("test Logger.getAnonymousLogger()");
     }
 }
