@@ -1,4 +1,4 @@
-## Set up the log4j2 as the central log library and bridges others (SL4J and JUL) to it
+## Set up the log4j2 as the central log library and bridges SL4J and JUL to it
 
 ### There are two principals approaches for logging in applications:
 

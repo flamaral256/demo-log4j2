@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <name>demo-log4j2</name>
-    <description>Set up the log4j2 as the central log library and bridges others (SL4J and JUL) to it</description>
+    <description>Use of log4j2 as the central log library</description>
     <groupId>org.flamaral256</groupId>
     <artifactId>demo-log4j2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
