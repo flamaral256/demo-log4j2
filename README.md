@@ -1,3 +1,5 @@
+## Set up the log4j2 as the central log library and bridges others (SL4J and JUL) to it
+
 ### There are two principals approaches for logging in applications:
 
 1. Log4j api + Log4j Core implementation <= (my choice due to better documentation)
