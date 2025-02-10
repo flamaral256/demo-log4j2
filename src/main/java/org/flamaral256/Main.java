@@ -26,7 +26,7 @@ public class Main {
     }
 
     static {
-        configureJul(); // no Logger or LogManager call can be made before this method call!
+        configureJul();
     }
 
     public static void main(String[] args) {

@@ -25,7 +25,9 @@ public class MainSuite {
     private static final org.apache.logging.log4j.Logger LOG4J = org.apache.logging.log4j.LogManager.getLogger(ApplicationTests.class);
 
     static {
-        configureJul(); // only called when executing tests through main method bellow
+        // configureJul is only called when executing tests through main method bellow
+        // for IDE junit integration or maven cli commands set in maven-surefire plugin
+        configureJul();
     }
 
     @BeforeSuite
