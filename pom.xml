@@ -81,8 +81,7 @@
         <!-- https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine -->
         <dependency>
             <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine
-            </artifactId> <!-- this engine is for running JUnit 3 and JUnit 4 based tests -->
+            <artifactId>junit-vintage-engine</artifactId> <!-- this engine is for running JUnit 3 and JUnit 4 based tests -->
             <version>5.11.4</version>
             <scope>test</scope>
         </dependency>
