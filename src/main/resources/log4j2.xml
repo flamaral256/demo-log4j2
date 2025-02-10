@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="warn"> <!-- change to all to see the complete log4j2 log startup -->
+<Configuration status="warn"> <!-- for complete log4j2 logs at startup change to ALL level -->
 
 	<Appenders>
 		<Console name="Console" target="SYSTEM_OUT">

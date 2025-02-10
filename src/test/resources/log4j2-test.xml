@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="warn"> <!-- change to all to see the complete log4j2 log startup -->
+<Configuration status="warn"> <!-- for complete log4j2 logs at startup change to ALL level -->
 
 	<Appenders>
 		<Console name="Console" target="SYSTEM_OUT">
@@ -11,7 +11,12 @@
 		<Root level="all">
 			<AppenderRef ref="Console" />
 		</Root>
-		<Logger name="org.junit" level="all" additivity="false">
+		<Logger name="org.junit" level="debug" additivity="false">
+			<!-- suppress TRACE Evaluation of condition for each test -->
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="java.lang.Runtime" level="off" additivity="false">
+			<!-- suppress Runtime.exit(0) or System.exit(0) issued by maven-surefire or intellij-junit plugin -->
 			<AppenderRef ref="Console" />
 		</Logger>
 		<Logger name="org.flamaral256" level="all" additivity="false">
