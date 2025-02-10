@@ -22,6 +22,7 @@ The use of JUL (java.util.logging), a native java logger used in many libraries 
 This project doesn't use the java.util.logging.manager system property pointing it to org.apache.logging.log4j.jul.LogManager
 The reason is that JUL global logger and JUL anonymous logger don't print messages when using the log4j2.jul.LogManager
 Instead, this project set the Log4jBridgeHandler in logging.properties to route all the jul events into the log4j2.
+There is also a Log4jBridgeHandler.install(), but for some reason, using it makes the JUL anonymous log don't appear.
 
 By default, the LogManager reads its initial configuration from "lib/logging.properties" in the JRE directory.
 If you edit this file, you may change the default logging configuration for all users of that JRE. Bad idea!
