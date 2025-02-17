@@ -46,6 +46,12 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j2-impl</artifactId> <!-- This bridge cause all SLF4J calls to be routed to Log4j -->
             <version>2.24.3</version>
+            <exclusions>
+                <exclusion> <!-- already imported above as the only Log4jProvider -->
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-core</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-jul -->
         <dependency>
