@@ -23,7 +23,7 @@ The use of JUL (java.util.logging), a native java logger used in many libraries 
 
 ### The setup of JUL (java.util.logging) to redirect to log4j: 
 
-This project doesn't use the java.util.logging.manager=org.apache.logging.log4j.jul.LogManager
+This project doesn't use the _java.util.logging.manager=org.apache.logging.log4j.jul.LogManager_
 The reason is that JUL global logger and JUL anonymous logger don't print messages when using the log4j2.jul.LogManager
 Instead, this project set the Log4jBridgeHandler in logging.properties to route all the jul events into the log4j2.
 There is also a Log4jBridgeHandler.install(), but for some reason, using it makes the JUL anonymous log doesn't appear.
