@@ -32,9 +32,9 @@ By default, the LogManager reads its initial configuration from `lib/logging.pro
 If you edit this file, you may change the default logging configuration for all users of that JRE. Bad idea!
 To allow more control over reading the initial configuration, we have three options:
 
-1. Loads `src/main/resources/logging.properties` as the default configuration ⇐ (my choice for general proposals and practice)
-2. Set `-Djava.util.logging.config.file` property ⇐ (not my choice but useful to override item 1 and use in mvn cli surefire)
-3. Set `-Djava.util.logging.config.class` property ⇐ (not my choice to configure JUL programmatically)
+1. Loads `src/main/resources/logging.properties` as the default configuration ⇐ (_my choice for general proposals and practice_)
+2. Set `-Djava.util.logging.config.file` property ⇐ (_not my choice but useful to override item 1 and use in mvn cli surefire_)
+3. Set `-Djava.util.logging.config.class` property ⇐ (_not my choice to configure JUL programmatically_)
 
 ## Configuring the entire log4j ecosystem
 
