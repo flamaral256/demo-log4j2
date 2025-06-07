@@ -17,9 +17,9 @@
 
     <dependencies>
 
-        <!-- If this project is a library and can not have a log implementations in its dependencies, use the commons-logging api -->
+        <!-- If this project is a library and cannot have a log implementation in its dependencies, use the commons-logging api -->
         <!-- This api uses the Java Class Library (JCL) to check if the application client has a log implementation at run time and load it. -->
-        <!-- That said, the commons-logging also act like a bridge, selecting the log api (log4j is looked up first) where logs will be redirected -->
+        <!-- That said, the commons-logging also acts like a bridge, selecting the log api (log4j is looked up first) where logs will be redirected -->
         <!-- Alternatives like spring-jcl was deprecated due to JPM errors. See https://github.com/spring-projects/spring-framework/issues/32459 -->
         <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
         <dependency>
@@ -44,7 +44,7 @@
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j2-impl -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j2-impl</artifactId> <!-- This bridge cause all SLF4J calls to be routed to Log4j -->
+            <artifactId>log4j-slf4j2-impl</artifactId> <!-- This bridge causes all SLF4J calls to be routed to Log4j -->
             <version>2.24.3</version>
             <exclusions>
                 <exclusion> <!-- already imported above as the only Log4jProvider -->
@@ -56,7 +56,7 @@
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-jul -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-jul</artifactId> <!-- This bridge cause all JUL calls to be routed to Log4j -->
+            <artifactId>log4j-jul</artifactId> <!-- This bridge causes all JUL calls to be routed to Log4j -->
             <version>2.24.3</version>
         </dependency>
         <!-- The bridge bellow is only necessary if you are using some legacy library that still uses log4j v1 -->
@@ -64,12 +64,12 @@
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-1.2-api -->
         <!--dependency-->
         <!--groupId>org.apache.logging.log4j</groupId-->
-        <!--artifactId>log4j-1.2-api</artifactId--> <!-- This bridge cause all legacy Log4j v1 calls to be routed to Log4j2 -->
+        <!--artifactId>log4j-1.2-api</artifactId--> <!-- This bridge causes all legacy Log4j v1 calls to be routed to Log4j2 -->
         <!--version>2.24.3</version-->
         <!--/dependency-->
 
         <!-- Demonstrates log configuration in test scope using JUnit 5 = JUnit Platform Suite + JUnit Jupiter + JUnit Vintage  -->
-        <!-- The JUnit Platform supports the declarative definition and execution of @Suite of tests from any test engine -->
+        <!-- The JUnit Platform supports the @Suite annotation for definition and execution of tests from any test engine -->
         <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-suite -->
         <dependency>
             <groupId>org.junit.platform</groupId>
@@ -87,7 +87,7 @@
         <!-- https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine -->
         <dependency>
             <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId> <!-- this engine is for running JUnit 3 and JUnit 4 based tests -->
+            <artifactId>junit-vintage-engine</artifactId> <!-- this engine is for running JUnit 3 and 4-based tests -->
             <version>5.11.4</version>
             <scope>test</scope>
         </dependency>
@@ -101,7 +101,7 @@
         <plugins>
 
             <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
-            <plugin> <!-- generates a executable jar with main class and classpath in manifest -->
+            <plugin> <!-- generates an executable jar with the main class and classpath in manifest -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.4.2</version>
@@ -133,7 +133,7 @@
             </plugin>
 
             <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-dependency-plugin -->
-            <plugin> <!-- copy dependencies to target/lib folder, to be useful to check the lib sizes -->
+            <plugin> <!-- copy dependencies to the target/lib folder, to be useful to check the lib sizes -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>3.8.1</version>

@@ -1,6 +1,5 @@
 package org.flamaral256;
 
-import org.flamaral256.app.ApplicationTests;
 import org.junit.platform.launcher.Launcher;
 import org.junit.platform.launcher.LauncherDiscoveryRequest;
 import org.junit.platform.launcher.LauncherSession;
@@ -22,7 +21,7 @@ import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass
 @IncludeClassNamePatterns(".*Tests")
 public class MainSuite {
 
-    private static final org.apache.logging.log4j.Logger LOG4J = org.apache.logging.log4j.LogManager.getLogger(ApplicationTests.class);
+    private static final org.apache.logging.log4j.Logger LOG4J = org.apache.logging.log4j.LogManager.getLogger(MainSuite.class);
 
     static {
         // configureJul is only called when executing tests through main method bellow
@@ -53,7 +52,7 @@ public class MainSuite {
             launcher.registerTestExecutionListeners(listener);
             // Discover tests and build a test plan
             final TestPlan testPlan = launcher.discover(request);
-            // Execute test plan or alternatively, execute the request directly with launcher.execute(request);
+            // Execute the test plan or alternatively, execute the request directly with launcher.execute(request);
             launcher.execute(testPlan);
         }
 
