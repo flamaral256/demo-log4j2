@@ -23,18 +23,18 @@ The use of JUL (java.util.logging), a native java logger used in many libraries 
 
 ### The setup of JUL (java.util.logging) to redirect to log4j: 
 
-This project doesn't use the _java.util.logging.manager=org.apache.logging.log4j.jul.LogManager_
-The reason is that JUL global logger and JUL anonymous logger don't print messages when using the log4j2.jul.LogManager
-Instead, this project set the Log4jBridgeHandler in logging.properties to route all the jul events into the log4j2.
-There is also a Log4jBridgeHandler.install(), but for some reason, using it makes the JUL anonymous log doesn't appear.
+This project doesn't use the `java.util.logging.manager=org.apache.logging.log4j.jul.LogManager`.
+The reason is that JUL global logger and JUL anonymous logger don't print messages when using the `log4j2.jul.LogManager`.
+Instead, this project set the `Log4jBridgeHandler` in `logging.properties` to route all the jul events into the log4j2.
+There is also a `Log4jBridgeHandler.install()`, but using it makes the JUL anonymous log doesn't appear.
 
-By default, the LogManager reads its initial configuration from "lib/logging.properties" in the JRE directory.
+By default, the LogManager reads its initial configuration from `lib/logging.properties` in the JRE directory.
 If you edit this file, you may change the default logging configuration for all users of that JRE. Bad idea!
 To allow more control over reading the initial configuration, we have three options:
 
-1. Loads src/main/resources/logging.properties as the default configuration ⇐ (my choice for general proposals and practice)
-2. Set -Djava.util.logging.config.file property ⇐ (not my choice but useful to override item 1 and use in mvn cli surefire)
-3. Set -Djava.util.logging.config.class property ⇐ (not my choice to configure JUL programmatically)
+1. Loads `src/main/resources/logging.properties` as the default configuration ⇐ (my choice for general proposals and practice)
+2. Set `-Djava.util.logging.config.file` property ⇐ (not my choice but useful to override item 1 and use in mvn cli surefire)
+3. Set `-Djava.util.logging.config.class` property ⇐ (not my choice to configure JUL programmatically)
 
 ## Configuring the entire log4j ecosystem
 
@@ -44,16 +44,16 @@ There are too many properties in log4j2 divided in groups of configuration, for 
 
 It is the logging system used by Log4j2 for reporting the status of its internals.
 Basically, we set the log level status to see the bootstrap of log4j2.
-Its configuration file is log4j2.StatusLogger.properties to be more explicit.
+Its configuration file is `log4j2.StatusLogger.properties`.
 
 ### Group 2: Framework system properties
 
 It is the global properties that log4j2 exposes for its general working.
 Basically, we force the configuration file to be in properties' format and set the root log level.
 Also, we can change the file location URI to externalize the configuration in the environment.
-Its configuration file is log4j2.system.properties to be more explicit.
+Its configuration file is `log4j2.system.properties`.
 
 ### Group 3: User logging definitions properties
 
-For the user perspective it is the only file needed, where we set the appender, loggers and layouts.
-Its configuration file is log4j2.properties to be more explicit.
+For the user perspective it is the only file needed, where we set the appenders, loggers and layouts.
+Its configuration file is `log4j2.properties`.
