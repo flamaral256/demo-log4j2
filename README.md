@@ -4,7 +4,7 @@
 
 ### There are two principals' approaches for logging:
 
-1. Log4j api + Log4j Core implementation <= (my choice due to better documentation)
+1. Log4j api + Log4j Core implementation ⇐ (my choice due to better documentation)
 2. SL4J api + Logback implementation ⇐ (not my choice due to bad documentation)
 
 This project is a demo to concentrate all logging's apis (including JUL and SL4J) into the log4j, my chosen log framework.
