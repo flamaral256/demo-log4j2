@@ -13,6 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
+        <log4j.version>2.25.4</log4j.version>
     </properties>
 
     <dependencies>
@@ -33,19 +34,19 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.25.3</version>
+            <version>${log4j.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.25.3</version>
+            <version>${log4j.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j2-impl -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j2-impl</artifactId> <!-- This bridge causes all SLF4J calls to be routed to Log4j -->
-            <version>2.25.3</version>
+            <version>${log4j.version}</version>
             <exclusions>
                 <exclusion> <!-- already imported above as the only Log4jProvider -->
                     <groupId>org.apache.logging.log4j</groupId>
@@ -57,7 +58,7 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-jul</artifactId> <!-- This bridge causes all JUL calls to be routed to Log4j -->
-            <version>2.25.3</version>
+            <version>${log4j.version}</version>
         </dependency>
         <!-- The bridge bellow is only necessary if you are using some legacy library that still uses log4j v1 -->
         <!-- Ref. https://logging.apache.org/log4j/2.x/migrate-from-log4j1.html#when-to-stop-using-the-log4j-1-x-bridge -->
@@ -65,7 +66,7 @@
         <!--dependency-->
         <!--groupId>org.apache.logging.log4j</groupId-->
         <!--artifactId>log4j-1.2-api</artifactId--> <!-- This bridge causes all legacy Log4j v1 calls to be routed to Log4j2 -->
-        <!--version>2.24.3</version-->
+        <!--version>${log4j.version}</version-->
         <!--/dependency-->
 
         <!-- Demonstrates log configuration in test scope using JUnit 5 = JUnit Platform Suite + JUnit Jupiter + JUnit Vintage  -->
