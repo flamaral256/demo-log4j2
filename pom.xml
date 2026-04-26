@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
-        <log4j.version>2.25.4</log4j.version>
+        <log4j.version>3.0.0-beta2</log4j.version>
     </properties>
 
     <dependencies>
@@ -30,12 +30,6 @@
         </dependency>
 
         <!-- Log4j is a logging API whose reference implementation is Log4j Core. This is our choice and all foreign loggers will be redirected to here -->
-        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
